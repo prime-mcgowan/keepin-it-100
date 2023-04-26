@@ -1,5 +1,6 @@
 
-// get values form the inputs
+// get values form the page
+// start or controller function
 function getValues() {
     let startValue = document.getElementById("startValue").value;
     let endValue = document.getElementById("endValue").value;
@@ -19,8 +20,24 @@ function getValues() {
     }   
 }
 
-    function displayNumbers(numbers) {
-        let templateRows= "";
+// generate numbers from startValue to endValue
+// logic function
+function generateNumbers(sValue, eValue){
+    let numbers = []; //empty array
+    for(let i=sValue; i<=eValue; i++){
+        numbers.push(i);
+    }
+    
+    return numbers;
+}
+
+
+
+
+// display numbers - even numbers should be bold
+// display or view function
+function displayNumbers(numbers) {
+    let templateRows= "";
 
         for (let index = 0; index < numbers.length; index++) {
             let className = "even";
@@ -36,18 +53,10 @@ function getValues() {
             templateRows += `<tr><td class="${className}">${number}</td></tr>`;   
         }
         document.getElementById("results").innerHTML = templateRows;
-    }
-
-
-//generate numbers from startValue to endValue
-function generateNumbers(sValue, eValue){
-    let numbers = [];
-    for(let i=sValue; i<=eValue; i++){
-        numbers.push(i);
-    }
-    
-    return numbers;
 }
 
-//display numbers and mark even numbers bold
+
+
+
+
 

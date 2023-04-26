@@ -65,23 +65,97 @@
 <!-- Main Section -->
 <main class="flex-shrink-0">
     <div class="container py-4 px-5 mt-5">
-        <h2 class="border-1 border-bottom border-dark">The Code for Keepin' It 100</h2>
+        <h2 class="border-1 border-bottom border-dark">Code for: Keepin' It 100</h2>
         <div class="row row-cols-1 row-cols-lg-2">
             <!-- code -->
             <div class="col-lg-8">
                 <pre class="line-numbers">
                     <code class="language-javascript">
-                        function helloWorld() {
-                            alert("Hello World!!");
+
+                        // get values form the page
+                        // start or controller function
+                        function getValues() {
+                            let startValue = document.getElementById("startValue").value;
+                            let endValue = document.getElementById("endValue").value;
+                          
+                            //validate our input (parse then check)
+                            //will make sure numbers are looked at as integers
+                            startValue = parseInt(startValue);
+                            endValue = parseInt(endValue)
+                        
+                            if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+                                 //call generateNumbers
+                                let numbers = generateNumbers(startValue, endValue);
+                                //call displayNumbers
+                                displayNumbers(numbers);
+                            } else {
+                                alert("You must enter numbers")
+                            }   
                         }
+                        
+                        // generate numbers from startValue to endValue
+                        // logic function
+                        function generateNumbers(sValue, eValue){
+                            let numbers = []; //empty array
+
+                            // we want to get ALL numbers from start to end
+                            for(let i=sValue; i<=eValue; i++){
+                                numbers.push(i);
+                            }
+                            
+                            return numbers;
+                        }
+                        
+                        
+                        
+                        
+                        // display numbers - even numbers should be bold
+                        // display or view function
+                        function displayNumbers(numbers) {
+                            let templateRows= "";
+                        
+                                for (let index = 0; index < numbers.length; index++) {
+                                    let className = "even";
+                        
+                                    let number = numbers[index];
+                        
+                                    //check to see if number is even
+                                    if(number % 2 == 0) {
+                                        className="even";
+                                    } else {
+                                        className="odd";
+                                    }
+                                    templateRows += `<tr><td class="${className}">${number}</td></tr>`;   
+                                }
+                                document.getElementById("results").innerHTML = templateRows;
+                        }
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                     </code>
                 </pre>
             </div>
             <!-- description of code -->
-            <div class="col-lg-4">
-                <p>The Code is structured in one function.</p>
-                <h5>Hello World</h5>
-                <p>Hello World is a function that displays an alert with a message of "Hello World!!"</p>
+            <div class="col-lg-4 mt-2">
+                <h3>Write a program that displays a user given number range from 1-100. Return all even numbers in BOLD.</h3>
+                <h5>1. Retrieve user input numbers</h5>
+                    <p>The getValues function is doing just that. Using getElementById I can accessing the user inputted start number (startValue) and end number (endValue).
+                       The startValue and endValue are used as parameters for the generateNumbers function. We pass in the user inputted start number and end number.
+                    </p>
+                <h5>2. Generate the numbers within the user given range</h5>
+                    <p>For the generateNumbers function we give it two variables = sValue and eValue.
+                       An empty array is created to hold all the numbers generated. 
+                       A loop is written to go over all the numbers from the starting number until it hits the end number...adding one number to the list everytime the loop is gone through.
+                       Numbers are added to the array by using .push.
+                    </p>
+                <h5>3. Display the numbers. Even numbers should be bold.</h5>
+                    <p></p>
+                    
+                </p>
             </div>
         </div>
     </div>
