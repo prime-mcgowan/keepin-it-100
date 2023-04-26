@@ -143,8 +143,13 @@
             <div class="col-lg-4 mt-2">
                 <h3>Write a program that displays a user given number range from 1-100. Return all even numbers in BOLD.</h3>
                 <h5>1. Retrieve user input numbers</h5>
-                    <p>The getValues function is doing just that. Using getElementById I can accessing the user inputted start number (startValue) and end number (endValue).
+                    <p>The getValues function is doing just that. Using getElementById I can access the user inputted start number (startValue) and end number (endValue).
                        The startValue and endValue are used as parameters for the generateNumbers function. We pass in the user inputted start number and end number.
+
+                       *An input will bring back numbers/intergers as a string...which isn't what we want to be using. We have to validate our inputs to make sure they are integers.
+                       So, parseInt is used to convert the string into an integer. To continue the validation we us an If Statement and Number.isInteger to check if the user has inputted integers or not.
+                       If the user did put in integers...great!! - the program will continue to run. If the user did not enter integers, they will be met with an alert to do so.
+
                     </p>
                 <h5>2. Generate the numbers within the user given range</h5>
                     <p>For the generateNumbers function we give it two variables = sValue and eValue.
