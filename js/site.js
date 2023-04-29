@@ -1,5 +1,5 @@
 
-// get values form the page
+// get values from the page
 // start or controller function
 function getValues() {
     let startValue = document.getElementById("startValue").value;

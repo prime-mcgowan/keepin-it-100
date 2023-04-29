@@ -72,7 +72,7 @@
                 <pre class="line-numbers">
                     <code class="language-javascript">
 
-                        // get values form the page
+                        // get values from the page
                         // start or controller function
                         function getValues() {
                             let startValue = document.getElementById("startValue").value;
@@ -125,8 +125,7 @@
                                     } else {
                                         className="odd";
                                     }
-                                    templateRows += `<tr><td class="${className}">${number}</td></tr>`;   
-                                }
+                                    templateRows += `&lt;tr>&lt;td class="${className}" >${number}&lt;/td>&lt;/tr>                                }
                                 document.getElementById("results").innerHTML = templateRows;
                         }
                         
@@ -143,22 +142,33 @@
             <div class="col-lg-4 mt-2">
                 <h3>Write a program that displays a user given number range from 1-100. Return all even numbers in BOLD.</h3>
                 <h5>1. Retrieve user input numbers</h5>
-                    <p>The getValues function is doing just that. Using getElementById I can access the user inputted start number (startValue) and end number (endValue).
+                    <p>The getValues() function is doing just that. Using the getElementById method, I can access the user inputted start number (startValue) and end number (endValue).
+                       
                        The startValue and endValue are used as parameters for the generateNumbers function. We pass in the user inputted start number and end number.
 
                        *An input will bring back numbers/intergers as a string...which isn't what we want to be using. We have to validate our inputs to make sure they are integers.
-                       So, parseInt is used to convert the string into an integer. To continue the validation we us an If Statement and Number.isInteger to check if the user has inputted integers or not.
-                       If the user did put in integers...great!! - the program will continue to run. If the user did not enter integers, they will be met with an alert to do so.
+                       So, parseInt() method is used to convert the string into an integer. 
+                       
+                       To continue the validation we use an If/Else Statement and Number.isInteger() method to check if the user has inputted integers or not.
+                       If the user did put in integers...great!! - the program will continue to run by calling the generateNumbers() function. If the user did not enter integers, they will be met with an alert and asked to do so.
 
                     </p>
                 <h5>2. Generate the numbers within the user given range</h5>
-                    <p>For the generateNumbers function we give it two variables = sValue and eValue.
+                    <p>The generateNumbers() function takes two arguements: sValue and eValue.
                        An empty array is created to hold all the numbers generated. 
                        A loop is written to go over all the numbers from the starting number until it hits the end number...adding one number to the list everytime the loop is gone through.
                        Numbers are added to the array by using .push.
                     </p>
                 <h5>3. Display the numbers. Even numbers should be bold.</h5>
-                    <p></p>
+                    <p>The displayNumbers() function takes in the generated array of numbers as an argument and displays them on the page for the user.
+                       A for loop is used to go through the array of numbers to check and see if the number is even or odd using the 
+                       modulo operator %. This divides the number by two and if there is no remainder then the number is determined to be even. 
+                       If the number is even - the class name is set to "even". If the number is "odd" - the class name is set to "odd".
+                       Table rows are created with each table cell containing the number with the appropriate class name attached to it and is added to the templateRows string.
+                       The class names have been styled in site.css - so the even numbers will be styled with bold text.
+                       The innerHTML property is set wiht the ID of "results" which will have the generated numbers displayed in the results element
+                       of the webpage.
+                    </p>
                     
                 </p>
             </div>
