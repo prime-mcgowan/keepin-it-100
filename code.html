@@ -78,13 +78,12 @@
                             let startValue = document.getElementById("startValue").value;
                             let endValue = document.getElementById("endValue").value;
                           
-                            //validate our input (parse then check)
-                            //will make sure numbers are looked at as integers
+                        //validate our input (parse then check that is indeed an integer)
                             startValue = parseInt(startValue);
                             endValue = parseInt(endValue)
                         
                             if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
-                                 //call generateNumbers
+                                //call generateNumbers
                                 let numbers = generateNumbers(startValue, endValue);
                                 //call displayNumbers
                                 displayNumbers(numbers);
@@ -93,12 +92,13 @@
                             }   
                         }
                         
+                        
                         // generate numbers from startValue to endValue
                         // logic function
                         function generateNumbers(sValue, eValue){
                             let numbers = []; //empty array
 
-                            // we want to get ALL numbers from start to end
+                            // get ALL numbers from start to end
                             for(let i=sValue; i<=eValue; i++){
                                 numbers.push(i);
                             }
@@ -106,9 +106,7 @@
                             return numbers;
                         }
                         
-                        
-                        
-                        
+                                  
                         // display numbers - even numbers should be bold
                         // display or view function
                         function displayNumbers(numbers) {
@@ -126,15 +124,8 @@
                                         className="odd";
                                     }
                                     templateRows += `&lt;tr>&lt;td class="${className}" >${number}&lt;/td>&lt;/tr>                                }
-                                document.getElementById("results").innerHTML = templateRows;
-                        }
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+                                    document.getElementById("results").innerHTML = templateRows;
+                        }   
                     </code>
                 </pre>
             </div>
@@ -155,8 +146,8 @@
                 <h5>2. Generate the numbers within the user given range</h5>
                     <p>The generateNumbers() function takes two arguements: sValue and eValue.
                        An empty array is created to hold all the numbers generated. 
-                       A loop is written to go over all the numbers from the starting number until it hits the end number...adding one number to the list everytime the loop is gone through.
-                       Numbers are added to the array by using .push.
+                       A for loop is written to go over all the numbers from the starting number until it hits the end number...adding one number to the list everytime the loop is gone through.
+                       Numbers are added to the array by using the .push method.
                     </p>
                 <h5>3. Display the numbers. Even numbers should be bold.</h5>
                     <p>The displayNumbers() function takes in the generated array of numbers as an argument and displays them on the page for the user.
