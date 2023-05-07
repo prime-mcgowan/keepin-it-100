@@ -44,6 +44,25 @@ footer{
     padding-right: 1rem;
 }
 
+.underline {
+    text-decoration: none;
+    opacity: 0.9;
+}
+
+
+.email{
+    text-decoration: none;
+    color:white;
+    opacity: 0.9;
+}
+
+.email:hover{
+    text-decoration: none;
+    opacity: 0.9;
+    color:#F611AE
+}
+
+
 footer .social>a{
     color: var(--white-color);
     opacity: 0.75;
@@ -51,7 +70,7 @@ footer .social>a{
 
 footer .social>a:hover{
     opacity: 0.9;
-    color: var(--secondary-color);
+    color:#F611AE
 }
 
 .bsicon{
